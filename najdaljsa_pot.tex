@@ -1,0 +1,38 @@
+\documentclass[a4paper, 12pt]{article} 
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{listings}
+
+\textwidth 15cm
+\textheight 24cm
+\oddsidemargin.5cm
+\evensidemargin.5cm
+\topmargin-5mm
+\addtolength{\footskip}{10pt}
+\pagestyle{plain}
+\overfullrule=15pt
+
+\newcommand{\naslovdela}{Najdaljša pot}
+
+\begin{document}
+\begin{center}
+    {\bf \naslovdela}\\[3mm]
+\end{center}
+
+\section{Uvod}
+Za projektno nalogo pri predmetu finančni praktikum bova iskala najdaljše poti v grafih. Za razliko od problema iskanja najkrajše poti v grafih brez negativnih ciklov, ki je rešljiv v polinomskem času, pa je problem iskanja najdaljše poti NP-težak za splošne grafe. Za usmerjene aciklične grafe poznamo linerni algoritem, ki reši problem, kar je predvsem uporabno pri iskanju kritičnih poti. \\
+Iskanje Hamiltonove poti v grafu $G$ z $n$ vozlišči lahko reduciramo na iskanje najdaljše poti, saj graf vsebuje Hamiltonovo pot, če je dolžina najdaljše poti grafa $G$ enaka $n-1$. Ker je iskanje Hamiltonove poti v grafu NP-težak problem, je posledično tudi iskanje najdaljše poti v grafu NP-težak problem. Če bi iskanje najdaljše poti bil polinomski problem, bi lahko poiskali najdaljšo pot v grafu in jo primerjali s številom vozlišč. Potemtakem bi bilo iskanje Hamiltonove poti polinomski problem, kar pa vemo da ni.
+
+\section{Usmerjeni aciklični grafi}
+V primeru usmerjenih acikličnih grafov poznamo več načinov, kako lahko v linearnem času poiščemo najdaljše poti. Eden izmed njih je, da za uteži povezav grafa $G$ damo nasprotne vrednosti cen povezav istega grafa. Tako dobimo novi graf $-G$, katerega najkrajša pot je najdalša pot v grafu $G$. Ker je graf $G$ usmerjen in acikličen, s tem nismo ustvarili negativnih ciklov in zato lahko uporabimo algoritme za iskanje najkrajših poti v grafih. \\
+Drugi način je, da graf topološko uredimo, nato pa poiščemo najdaljše poti do vsakega vozlišča v grafu. To naredimo tako, da vozliščom dodamo maksimalno vrednost uteži povezav do njih oziroma najdaljše število povezav do njih, v primeru ko je graf neutežen. Če vozlišče nima vstopnih povezav mu dodelimo vrednost $0$. Nato se vračamo od vozlišča z največjo vrednostjo proti začetku, pri čemer na vsakem koraku odštejemo ceno povezave oziroma $1$ od predhodnega vozlišča. Pot po kateri pridemo do izhodišča topološko urejenega grafa, tako, da je končna vrednost enaka $0$, je najdaljša pot v danem grafu.
+
+\section{Splošni grafih}
+Kot sva že omenila, je problem iskanja najdaljše poti v grafu NP-težak oziroma ni polinomski problem. Pri tem si pomagamo z barvanjem
+\end{document}
