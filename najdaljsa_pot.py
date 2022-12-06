@@ -113,7 +113,6 @@ def color_coding(G,K,n = 100):
             x = {}
             mnozice = [frozenset({j for j in range(1, k+1) if (i >> (j-1)) & 1 == 1}) for i in range(2**k)]
             mnozice = sorted([s for s in mnozice if len(s) > 1], key=len)
-
             for v in G:
                 for i in range(1,k+1):
                     x[v,frozenset({i})] = barvanje[v] == i
@@ -121,7 +120,6 @@ def color_coding(G,K,n = 100):
                 for v in G:
                     b = barvanje[v]
                     x[v, C] = b in C and any(x[u, C - {b}] for u in G[v])
-                    #y |= x[v,C]
             if any(x[v,mnozice[-1]] for v in G):
                 odgovor = k
     return odgovor

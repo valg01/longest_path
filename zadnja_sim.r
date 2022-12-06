@@ -125,6 +125,52 @@ legend(x = "topleft",
        legend = c("Color coding", "DFS"),
        fill= c("blue","orange"))
 
+#______tretji del______
+
+
+
+tabela5 <- read.csv('~/Desktop/financna_matematika/3. letnik/financni praktikum/projekt/longest_path/simulacija_30_-2_2.csv')
+tabela5 <- tabela5[,c(1,2,3,6)]
+tabela6 <- read.csv('~/Desktop/financna_matematika/3. letnik/financni praktikum/projekt/longest_path/simulacija_30_1_1.csv')
+tabela6 <- tabela6[,c(1,2,3,6)]
+tabela7 <- read.csv('~/Desktop/financna_matematika/3. letnik/financni praktikum/projekt/longest_path/simulacija_100_-7_7.csv')
+tabela7 <- tabela7[,c(1,2,3,6)]
+
+
+povprecje_utezi <- c()
+for (x in c(7,14,21,28,35,42)){
+  tabela1 <- read.csv(glue('~/Desktop/financna_matematika/3. letnik/financni praktikum/projekt/longest_path/simulacija_100_1_{x}.csv'))
+  delcek <- c(mean(tabela1[, 6] / tabela1[, 1]), x)
+  povprecje_utezi <- rbind(povprecje_utezi, delcek)
+}
+povprecje_utezi
+
+
+plot(povprecje_utezi[, 2], povprecje_utezi[, 1],
+     main = 'Povp. čas za eno povezavo glede na razpon uteži',
+     xlab = 'razpon utezi',
+     ylab = 'cas v sekundah',
+     type = 'b',
+     pch = 16)
+
+
+povprecje_vozlisc <- c()
+for (x in c(100,200,300,400)){
+  tabela1 <- read.csv(glue('~/Desktop/financna_matematika/3. letnik/financni praktikum/projekt/longest_path/simulacija_{x}_1_7.csv'))
+  delcek <- c(mean(tabela1[, 6] / tabela1[, 1]), x)
+  povprecje_vozlisc <- rbind(povprecje_vozlisc, delcek)
+}
+povprecje_vozlisc
+
+plot(povprecje_vozlisc[, 2], povprecje_vozlisc[, 1],
+     main = 'Povp. čas za eno povezavo glede na stevilo vozlisc',
+     xlab = 'stevilo vozlisc',
+     ylab = 'cas v sekundah',
+     type = 'b',
+     pch = 16)
+read
+
+
 
 
 
